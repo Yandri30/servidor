@@ -1,0 +1,47 @@
+<main>
+    <h2>Tecno Store System</h2>
+    <h3>¡Hola de nuevo {{identity.nombres}}!</h3>
+    <p>Escoge una opción para continuar</p>
+    <div class="container__box">
+
+        <a routerLink="/users">
+            <div class="box" *ngIf="identity.role === 'ADMIN'">
+                <i class="lni lni-user"></i>
+                <h5>Usuarios</h5>
+                <h4>Usuarios</h4>
+            </div>
+        </a>
+
+        <a routerLink="/clientes">
+            <div class="box">
+                <i class="lni lni-users"></i>
+                <h5>Clientes</h5>
+                <h4>Clientes</h4>
+            </div>
+        </a>
+
+        <a routerLink="/productos">
+            <div class="box" *ngIf="identity.role === 'VENDEDOR'|| identity.role === 'ADMIN'">
+                <i class="lni lni-dropbox"></i>
+                <h5>Productos</h5>
+                <h4>Productos</h4>
+            </div>
+        </a>
+
+        <a routerLink="/ventas">
+            <div class="box" *ngIf="identity.role === 'VENDEDOR'|| identity.role === 'ADMIN'">
+                <i class="lni lni-cart-full"></i>
+                <h5>Ventas</h5>
+                <h4>Ventas</h4>
+            </div>
+        </a>
+
+        <a (click)="logout()">
+            <div class="box">
+                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                <h5>Cerrar Sesión</h5>
+                <h4>Cerrar Sesión</h4>
+            </div>
+        </a>
+    </div>
+</main>
